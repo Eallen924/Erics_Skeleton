@@ -1,10 +1,10 @@
 
+
 get '/user/create' do
   erb :create_user, layout: !request.xhr?
 end
 
 post '/user/create' do
-  # url = Gravatar.new("generic@example.com").image_url
   @user = User.new(params[:user])
   if @user.save
     session[:user_id] = @user.id
